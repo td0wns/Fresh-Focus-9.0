@@ -131,3 +131,4 @@ export default function App() {
     </div>
   );
 }
+Restored full App.jsx from stable version
