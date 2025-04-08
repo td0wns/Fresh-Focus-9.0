@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { createClient } from '@supabase/supabase-js';
 
 const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
+  process.env.REACT_APP_SUPABASE_URL
+process.env.REACT_APP_SUPABASE_ANON_KEY
   import.meta.env.VITE_SUPABASE_ANON_KEY
 );
 
