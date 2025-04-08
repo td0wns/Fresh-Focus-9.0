@@ -107,12 +107,16 @@ export default function App() {
 
       {gamePhase === "typingWords" && (
         <div style={{ marginTop: 20 }}>
-          <Input
-            value={inputWord}
-            onChange={(e) => setInputWord(e.target.value)}
-            placeholder="Enter word"
-            onKeyDown={(e) => e.key === "Enter" && handleWordSubmit()}
-          />
+         <input
+  value={inputWord}
+  onChange={(e) => setInputWord(e.target.value)}
+  placeholder="Enter word"
+  onKeyDown={(e) => e.key === "Enter" && handleWordSubmit()}
+  style={{ padding: "8px", fontSize: "16px", marginRight: "8px" }}
+/>
+<button
+  onClick={handleWordSubmit}
+  style={{ padding: "8px 16px", backgroundColor: "#84dade", border: "none", color: "white", cursor: "pointer" }}
           <Button onClick={handleWordSubmit}>Submit</Button>
         </div>
       )}
