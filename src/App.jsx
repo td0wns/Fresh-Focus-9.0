@@ -117,8 +117,9 @@ export default function App() {
 <button
   onClick={handleWordSubmit}
   style={{ padding: "8px 16px", backgroundColor: "#84dade", border: "none", color: "white", cursor: "pointer" }}
-          <Button onClick={handleWordSubmit}>Submit</Button>
-        </div>
+>
+  Submit
+</button>
       )}
 
       <div style={{ marginTop: 10 }}>
