@@ -1,6 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import React, { useEffect, useState } from "react";
 import { createClient } from '@supabase/supabase-js';
 
 const supabase = createClient(
@@ -9,7 +7,6 @@ const supabase = createClient(
 );
 
 export default function App() {
-  // Core state variables
   const [grid, setGrid] = useState(Array(25).fill(null));
   const [pattern, setPattern] = useState([]);
   const [userPattern, setUserPattern] = useState([]);
@@ -21,7 +18,6 @@ export default function App() {
   const [message, setMessage] = useState("");
   const [score, setScore] = useState(0);
 
-  // Utility: Generate a valid letter
   const generateLetter = () => {
     const vowels = ["A", "E", "I", "O", "U"];
     const consonants = "BCDFGHJKLMNPQRSTVWXYZ".split("");
@@ -40,7 +36,6 @@ export default function App() {
     setGrid(newGrid);
     setPattern(patternIndices);
 
-    // Show pattern for a few seconds
     setTimeout(() => setGamePhase("selectingTiles"), 3000);
   }, []);
 
@@ -107,19 +102,26 @@ export default function App() {
 
       {gamePhase === "typingWords" && (
         <div style={{ marginTop: 20 }}>
-         <input
-  value={inputWord}
-  onChange={(e) => setInputWord(e.target.value)}
-  placeholder="Enter word"
-  onKeyDown={(e) => e.key === "Enter" && handleWordSubmit()}
-  style={{ padding: "8px", fontSize: "16px", marginRight: "8px" }}
-/>
-<button
-  onClick={handleWordSubmit}
-  style={{ padding: "8px 16px", backgroundColor: "#84dade", border: "none", color: "white", cursor: "pointer" }}
->
-  Submit
-</button>
+          <input
+            value={inputWord}
+            onChange={(e) => setInputWord(e.target.value)}
+            placeholder="Enter word"
+            onKeyDown={(e) => e.key === "Enter" && handleWordSubmit()}
+            style={{ padding: "8px", fontSize: "16px", marginRight: "8px" }}
+          />
+          <button
+            onClick={handleWordSubmit}
+            style={{
+              padding: "8px 16px",
+              backgroundColor: "#84dade",
+              border: "none",
+              color: "white",
+              cursor: "pointer"
+            }}
+          >
+            Submit
+          </button>
+        </div>
       )}
 
       <div style={{ marginTop: 10 }}>
@@ -136,4 +138,3 @@ export default function App() {
     </div>
   );
 }
-
